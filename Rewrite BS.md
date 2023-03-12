@@ -1,14 +1,17 @@
-In order to solve BSB equations, we first need to solve BS based on the algorithm.
+## Rewrite BS in the desired format
 
-We want to rewrite the equation $$-u_t+\frac{1}{2} \sigma^2 x^2 u_{x x}+r x  u_x-r u = 0$$ in the form :
+We want to rewrite the equation $$-u_t+\frac{1}{2} \sigma^2 x^2 u_{x x}+r x  u_x-r u = 0$$ in the form :\
+<img src="http://latex.codecogs.com/svg.latex?\partial_t&space;u(t,x)&space;&plus;&space;\frac{1}{2}\Delta&space;u(t,x)&space;&plus;&space;f\big(\partial_{\lambda^1}u(t,x)&space;,&space;\ldots&space;,&space;\partial_{\lambda^n}u(t,x)\big)&space;=&space;0," title="http://latex.codecogs.com/svg.latex?\partial_t u(t,x) + \frac{1}{2}\Delta u(t,x) + f\big(\partial_{\lambda^1}u(t,x) , \ldots , \partial_{\lambda^n}u(t,x)\big) = 0," />\
 
 
-Conclusion:
-$u(t,x)=m(t,x)/v(t,x)$
+#### Conclusion
+$u(t,x)=m(t,x)/v(x)$\
 $m(t,x)$ satistfies the equation:
-$v(t,x)$ satisfies the equation:
+$$am+bm_t+cm_x+dm_{xx} = 0$$ where $a=-r(r+\sigma^2)/2\sigma^2$, $b=-1$, $c=0$, and $d=\sigma^2x^2/2$.
 
 
+<br/><br/>
+#### Method
 $m(t, x) = u(t,x)v(t,x)$
 $$-u_t+\frac{1}{2} \sigma^2 x^2 u_{x x}+r x  u_x-r u$$
 感觉可以先假设$v$和$t$无关?
