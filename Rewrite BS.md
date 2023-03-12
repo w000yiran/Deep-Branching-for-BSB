@@ -10,8 +10,8 @@ Where $f(x,y)=-rx+\frac{r-\sigma^2}{\sigma}y$.
 
 ## Demo version 13th Mar
 
-Use European Call with 1 asset as example. <br/>
-The boundary and initial conditions of the above BS equation are as followed:
+Use European Call with 1 asset as example. In this demo version, deep branching is used to solve the BS equation with below conditions. <br/>
+The boundary and initial conditions of the BS equation are as followed:
 
 $$\begin{cases}
 u(0,t)=u(X,t)=0\\
