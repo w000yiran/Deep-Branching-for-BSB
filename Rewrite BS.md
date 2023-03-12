@@ -10,5 +10,12 @@ Where $f(x,y)=-rx+\frac{r-\sigma^2}{\sigma}y$.
 
 ## Prototype 13th Mar
 
-Use American Call as example exploration. <br/>
+Use American Call with 1 asset as example. <br/>
 The boundary and initial conditions of the above BS equation are as followed:
+
+$$\begin{cases}
+u(0,t)=u(X,t)=0\\
+u(S,0)=(S-K)^+
+\end{cases}$$
+
+Use $T=1$, $r=0.05$, and $\sigma=0.4$.
