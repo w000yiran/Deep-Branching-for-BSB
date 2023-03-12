@@ -1,4 +1,12 @@
+In order to solve BSB equations, we first need to solve BS based on the algorithm.
 
+We want to rewrite the equation $$-u_t+\frac{1}{2} \sigma^2 x^2 u_{x x}+r x  u_x-r u = 0$$ in the form :
+
+
+Conclusion:
+$u(t,x)=m(t,x)/v(t,x)$
+$m(t,x)$ satistfies the equation:
+$v(t,x)$ satisfies the equation:
 
 
 $m(t, x) = u(t,x)v(t,x)$
