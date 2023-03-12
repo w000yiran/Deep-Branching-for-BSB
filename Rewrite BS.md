@@ -18,7 +18,7 @@ u(0,t)=u(X,t)=0\\
 u(S,0)=(S-K)^+
 \end{cases}$$
 
-Use $T=1$, $r=0.05$, $\sigma=0.4$ and $K=10$.
+Use $T=1$, $r=0.05$, $\sigma=0.4$ and $K=1$. $x_{lo}=0$ and $x_{hi}=5$.
 
 The true solution of the equation is: <br/>
 $V(S,t)=S\phi(d_1)-K e^{-r(T-t)} \phi(d_2)$
