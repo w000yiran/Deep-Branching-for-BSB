@@ -1,6 +1,6 @@
 ## Rewrite BS in the desired format
 
-We want to rewrite the equation $$-u_t+\frac{1}{2} \sigma^2 x^2 u_{x x}+r x  u_x-r u = 0$$ in the desired form.<br/>
+We want to rewrite the equation $$-V_t+\frac{1}{2} \sigma^2 x^2 V_{x x}+r x  V_x-r V = 0$$ in the desired form.<br/>
 
 We consider the transform $y=log(\sigma x)$, and the equation becomes $$-u_t+\frac{1}{2} u_{y y}+\frac{r-\sigma^2}{\sigma}u_y - ru = 0$$
 
@@ -8,9 +8,9 @@ We obtain $u(x,t)=v(x,-t)$ where $v$ is obtained from deep branching with the fo
 $$v_t + \frac{1}{2} v_{yy} + f(u, u_y) = 0$$
 Where $f(x,y)=-rx+\frac{r-\sigma^2}{\sigma}y$.
 
-## Prototype 13th Mar
+## Demo version 13th Mar
 
-Use American Call with 1 asset as example. <br/>
+Use European Call with 1 asset as example. <br/>
 The boundary and initial conditions of the above BS equation are as followed:
 
 $$\begin{cases}
@@ -18,4 +18,8 @@ u(0,t)=u(X,t)=0\\
 u(S,0)=(S-K)^+
 \end{cases}$$
 
-Use $T=1$, $r=0.05$, and $\sigma=0.4$.
+Use $T=1$, $r=0.05$, $\sigma=0.4$ and $K=10$.
+
+The true solution of the equation is: <br/>
+$V(S,t)=S\phi(d_1)-K e^{-r(T-t)} \phi(d_2)$
+where $d_1=\frac{log(S/K)+(r+\sigma^2/2)(T-t)}{\sigma}$ and $d_2=d_1-\sigma\sqrt{T-t}$
