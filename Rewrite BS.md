@@ -8,7 +8,16 @@ We obtain $u(x,t)=v(x,-t)$ where $v$ is obtained from deep branching with the fo
 $$v_t + \frac{1}{2} v_{yy} + f(u, u_y) = 0$$
 Where $f(x,y)=-rx+\frac{r-\sigma^2}{\sigma}y$.
 
-## Demo version 13th Mar
+## Easy version
+
+$$\begin{cases}
+u(0,t)=u(X,t)=0\\
+u(S,0)=(S-K)
+\end{cases}$$
+
+The true solution of the equation is: $V(S,t)=S-K*e^{-(T-t)r}$
+
+## Demo version 
 
 Use European Call with 1 asset as example. In this demo version, deep branching is used to solve the BS equation with below conditions. <br/>
 The boundary and initial conditions of the BS equation are as followed:
@@ -24,3 +33,6 @@ Smoothened version of $u(S,0)$ is given by $u(S,0)=(abs(S-K)+S-K)/2=(sqrt((S-K)^
 The true solution of the equation is: <br/>
 $V(S,t)=S\phi(d_1)-K e^{-r(T-t)} \phi(d_2)$
 where $d_1=\frac{log(S/K)+(r+\sigma^2/2)(T-t)}{\sigma}$ and $d_2=d_1-\sigma\sqrt{T-t}$
+
+
+
