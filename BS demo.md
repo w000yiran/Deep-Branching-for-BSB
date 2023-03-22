@@ -36,7 +36,7 @@ European Call with 1 asset is tested, and $u(y,t)$ is the solution of the above 
 $(e^y/\sigma-K)^+$ is simplified by $\phi (y)=e^y/ \sigma - K$, 
 and $t \in [0,T]$, $y \in [x_{lo},x_{hi}]$. <br/>
 
-Use $r=0.05$, $\sigma=0.4$, $K=1$ and $T=1$, $x_{lo}=-4$, $x_{hi}=-4$.<br/>
+Use $r=0.05$, $\sigma=0.4$, $K=1$ and $T=0.5$, $x_{lo}=-4$, $x_{hi}=-4$.<br/>
 
 The true solution of the PDE is: $u(y,t)=V(S,t)=e^y/\sigma - K e^{-r(T-t)}$.
 
