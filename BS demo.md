@@ -1,40 +1,57 @@
 ## Rewrite BS in the desired format
 
-We want to rewrite the equation $$-V_t+\frac{1}{2} \sigma^2 x^2 V_{x x}+r x  V_x-r V = 0$$ in the desired form.<br/>
-
-We consider the transform $y=log(\sigma x)$, and the equation becomes $$-u_t+\frac{1}{2} u_{y y}+\frac{r-\sigma^2}{\sigma}u_y - ru = 0$$
-
-We obtain $u(x,t)=v(x,-t)$ where $v$ is obtained from deep branching with the following equation:
-$$v_t + \frac{1}{2} v_{yy} + f(u, u_y) = 0$$
-Where $f(x,y)=-rx+\frac{r-\sigma^2}{\sigma}y$.
-
-<br/>
-Remark: <br/>
-$t$ denotes time to maturity.
-
-## "Easy" version - $u(S,0)=S-K$
-
-Use European Call with 1 asset as example. Use $T=1$, $r=0.05$, $\sigma=0.4$ and $K=1$. $x_{lo}=0.01$ and $x_{hi}=5$.<br/>
-
-In this demo version, deep branching is used to solve the BS equation with below conditions. <br/>
-The boundary and initial conditions of the BS equation are as followed:
+We want to rewrite the below equation in the desired form. Here, $t$ denotes calendar time. <br/>
 
 $$\begin{cases}
-u(0,t)=u(X,t)=0\\
-u(S,0)=(S-K)
+V_t+\frac{1}{2} \sigma^2 S^2 V_{S S}+r S  V_S-r V = 0\\
+V(S,T)=(S-K)^+
 \end{cases}$$
 
-The true solution of the equation is: $V(S,t)=S-K*e^{-(T-t)r}$
-
-## Demo version - Smoothen $|x|$ by $\sqrt{x^2}$
+We consider the transform $y=log(\sigma S)$, and the equation becomes 
 
 $$\begin{cases}
-u(0,t)=u(X,t)=0\\
-u(S,0)=(S-K)^+
+u_t+\frac{1}{2} u_{y y}+\frac{r-\sigma^2}{\sigma}u_y - ru = 0\\
+u(y,T)=(e^y/\sigma-K)^+
 \end{cases}$$
 
-Smoothened version of $(S-K)^+$ is given by $u(S,0)=\frac{\sqrt{(S-K)^2}+S-K}{2}$
+And hence, we could solve by
+
+$$\begin{cases}
+u_{t} + \frac{1}{2} u_{yy} + f(u, u_y) = 0\\
+u(y,T) = \phi (y)
+\end{cases}$$
+
+$$\begin{cases}
+f(x,y)=-rx+\frac{r-\sigma^2}{\sigma}y\\
+\phi (y)=(e^y/\sigma-K)^+
+\end{cases}$$
+
+Here, $t$ denotes the actual time, and $u(y,t)$ denotes the transformed price. The true price $V(S,t) = u(log(\sigma S), t)$.
+
+
+## Simplified version - $\phi (y)=e^y/ \sigma - K$
+
+European Call with 1 asset is tested, and $u(y,t)$ is the solution of the above PDE solved by deep branching. <br/>
+
+$(e^y/\sigma-K)^+$ is simplified by $\phi (y)=e^y/ \sigma - K$, 
+and $t \in [0,T]$, $y \in [x_{lo},x_{hi}]$. <br/>
+
+Use $r=0.05$, $\sigma=0.4$, $K=1$ and $T=1$, $x_{lo}=-4$, $x_{hi}=-4$.<br/>
+
+The true solution of the PDE is: $u(y,t)=V(S,t)=e^y/\sigma - K e^{-r(T-t)}$.
+
+
+## Smoothened version - Smoothen $|x|$ by $\sqrt{x^2}$
+
+$(e^y/\sigma-K)^+$ is approximated by 
+$\phi (y) = \frac{\sqrt{(e^y/ \sigma -K)^2} + e^y/ \sigma -K} {2} $
 
 The true solution of the equation is: <br/>
-$V(S,t)=S\phi(d_1)-K e^{-r(T-t)} \phi(d_2)$
-where $d_1=\frac{log(S/K)+(r+\sigma^2/2)(T-t)}{\sigma}$ and $d_2=d_1-\sigma\sqrt{T-t}$
+
+$$\begin{cases}
+u(y,t)=\sigma^{-1} e^y \phi(d_1)-K e^{-r(T-t)} \phi(d_2)\\
+d_1=\frac{y-log(K \sigma)+(r+\sigma^2/2)(T-t)}{\sigma}\\
+d_2=d_1-\sigma\sqrt{T-t}
+\end{cases}$$
+
+
