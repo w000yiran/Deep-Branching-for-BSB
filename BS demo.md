@@ -8,6 +8,10 @@ We obtain $u(x,t)=v(x,-t)$ where $v$ is obtained from deep branching with the fo
 $$v_t + \frac{1}{2} v_{yy} + f(u, u_y) = 0$$
 Where $f(x,y)=-rx+\frac{r-\sigma^2}{\sigma}y$.
 
+<br/>
+Remark: <br/>
+$t$ denotes time to maturity.
+
 ## "Easy" version - $u(S,0)=S-K$
 
 Use European Call with 1 asset as example. Use $T=1$, $r=0.05$, $\sigma=0.4$ and $K=1$. $x_{lo}=0.01$ and $x_{hi}=5$.<br/>
