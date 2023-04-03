@@ -5,7 +5,7 @@ Desired format as in deep branching:
 $$\begin{cases}
 u_t+\frac{1}{2} u_{x x}+ f(u, u_x, u_{x x},...) = 0\\
 u(T,x)=\phi(x)\\
-(t,x) \in [0,T]\times \mathbb{R}
+(t,x) \in [0,T]\times \mathbb{R}_*
 \end{cases}$$
 
 We want to rewrite the below equation in the desired form. Here, $V(S,t)$ denotes the product price based on the underlying asset $S$ at calendar time $t$. 
@@ -34,7 +34,7 @@ f(x,y)=-rx+\frac{r-\sigma^2/2}{\sigma}y\\
 \phi (y)=(e^{\sigma y}-K)^+
 \end{cases}$$
 
-Here, $t$ denotes the actual time, and $u(y,t)$ denotes the transformed price. The true price $V(S,t) = u(log(S)/\sigma, t)$.
+Here, $t$ denotes the actual time, and $u(y,t)$ denotes the product price based on transformed asset price $y$. 
 
 
 ## Simplified version - $\phi (y)=e^{\sigma y} - K$
@@ -52,7 +52,7 @@ The true solution of the PDE is: $u(y,t)=V(S,t)=e^{\sigma y} - K e^{-r(T-t)}$.
 ## Smoothened version - Smoothen $x^+$ by $\frac{\sqrt{x^2} +x}{2} $
 
 $(e^{\sigma y}-K)^+$ is approximated by 
-$\phi (y) = \frac{\sqrt{(e^{\sigma y} -K)^2} + e^{\sigma y} -K} {2} $
+$\phi (y) = \frac{\sqrt{(e^{\sigma y} -K+\epsilon)^2} + e^{\sigma y} -K} {2} $
 
 The true solution of the equation is: <br/>
 
