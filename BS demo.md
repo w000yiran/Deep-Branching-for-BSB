@@ -62,4 +62,3 @@ d_1=\frac{\sigma y-log(K)+(r+\sigma^2/2)(T-t)}{\sigma \sqrt{T-t}}\\
 d_2=d_1-\sigma\sqrt{T-t}
 \end{cases}$$
 
-
